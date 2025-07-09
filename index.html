@@ -1,0 +1,405 @@
+html
+
+
+
+    
+    
+    BlockTop – Premium Minecraft Server Directory
+
+    
+    
+    
+
+    
+    
+        :root{
+            --grass:#0DBF6A;
+            --diamond:#4A8FE7;
+            --nether:#FF5555;
+            --gold:#FFD700;
+            --lifesteal:#FF3366;
+            --smp:#8A2BE2;
+            --dark-bg:#0c0e17;
+            --card-bg:#1E1F29;
+            --text-light:#F0F0F0;
+            --text-muted:#A0A0A0;
+            --transition:all .3s cubic-bezier(.175,.885,.32,1.275);
+            --minecraft-green:#3a8c3a
+        }
+
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Rubik',sans-serif;
+            background:var(--dark-bg);
+            color:var(--text-light);
+            overflow-x:hidden;
+            /* subtle “fresh & cool” radial overlays */
+            background-image:
+                radial-gradient(circle at 10% 20%,rgba(74,143,231,.15)0%,transparent 25%),
+                radial-gradient(circle at 90% 80%,rgba(93,230,255,.15)0%,transparent 25%),
+                radial-gradient(circle at 50% 50%,rgba(173,92,255,.08)0%,transparent 30%);
+            min-height:100vh
+        }
+
+        /* =======================
+             HEADER
+        ========================*/
+        header{
+            position:fixed;top:0;left:0;z-index:1000;width:100%;
+            display:flex;align-items:center;justify-content:space-between;
+            padding:1rem 5%;
+            background:rgba(12,14,23,.95);backdrop-filter:blur(10px);
+            border-bottom:1px solid rgba(74,143,231,.1);
+            box-shadow:0 5px 15px rgba(0,0,0,.3)
+        }
+        .logo{font-family:'Oxanium',sans-serif;font-size:1.8rem;font-weight:700;color:var(--minecraft-green);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+        .logo span{color:var(--diamond)}
+        .logo i{animation:pulse 2s infinite}
+
+        nav ul{display:flex;gap:2rem;list-style:none}
+        nav a{color:var(--text-light);text-decoration:none;font-weight:500;position:relative;padding:.5rem 0;transition:var(--transition)}
+        nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--minecraft-green);transition:var(--transition)}
+        nav a:hover{color:var(--minecraft-green)}nav a:hover::after{width:100%}
+
+        /* --- search box --- */
+        .search-container{position:relative;width:250px;display:flex}
+        .search-container input{
+            width:100%;padding:.8rem 1rem .8rem 3rem;border-radius:50px;
+            border:1px solid rgba(74,143,231,.3);background:rgba(30,31,41,.7);
+            color:var(--text-light);transition:var(--transition)
+        }
+        .search-container input:focus{outline:none;border-color:var(--diamond);box-shadow:0 0 15px rgba(74,143,231,.3)}
+        .search-container button{ /* NEW clickable button */
+            position:absolute;left:.8rem;top:50%;transform:translateY(-50%);
+            background:none;border:none;color:var(--diamond);cursor:pointer;font-size:1rem
+        }
+
+        /* =======================
+             HERO
+        ========================*/
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 5%}
+        .hero h1{
+            font-family:'Oxanium',sans-serif;font-size:4.5rem;font-weight:700;margin-bottom:1.5rem;
+            background:linear-gradient(90deg,var(--minecraft-green),var(--diamond),var(--lifesteal));
+            -webkit-background-clip:text;color:transparent;text-shadow:0 0 20px rgba(58,140,58,.5);animation:glow 3s infinite alternate
+        }
+        .hero p{font-size:1.5rem;max-width:700px;margin:0 auto 3rem;color:var(--text-muted);line-height:1.6}
+        .cta-button{display:inline-block;padding:1rem 2.5rem;border:none;border-radius:50px;font-weight:600;cursor:pointer;font-size:1.1rem;
+            background:linear-gradient(45deg,var(--minecraft-green),var(--diamond));color:#fff;letter-spacing:1px;
+            box-shadow:0 5px 15px rgba(13,191,106,.4);overflow:hidden;position:relative;transition:var(--transition)}
+        .cta-button:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(13,191,106,.6)}
+        .cta-button::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:rgba(255,255,255,.1);transform:rotate(30deg);transition:var(--transition)}
+        .cta-button:hover::after{transform:rotate(30deg) translate(20%,20%)}
+
+        /* =======================
+             SERVER CARDS
+        ========================*/
+        .featured-section{padding:5rem 5%}
+        .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem}
+        .section-header h2{font-family:'Oxanium',sans-serif;font-size:2.5rem;position:relative}
+        .section-header h2::after{content:'';position:absolute;bottom:-10px;left:0;width:60px;height:4px;background:var(--minecraft-green);border-radius:2px}
+
+        .filters{display:flex;gap:1rem;flex-wrap:wrap}
+        .filter-btn{padding:.7rem 1.5rem;border-radius:50px;font-weight:500;cursor:pointer;border:1px solid rgba(74,143,231,.3);background:rgba(30,31,41,.7);color:var(--text-light);transition:var(--transition)}
+        .filter-btn:hover,.filter-btn.active{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+        .filter-btn[data-filter="all"].active,
+        .filter-btn[data-filter="all"]:hover{background:linear-gradient(45deg,var(--diamond),var(--minecraft-green));color:#fff;border-color:transparent}
+        .filter-btn[data-filter="pvp"].active,.filter-btn[data-filter="pvp"]:hover{background:linear-gradient(45deg,var(--nether),#cc0000);color:#fff;border-color:transparent}
+        .filter-btn[data-filter="survival"].active,.filter-btn[data-filter="survival"]:hover{background:linear-gradient(45deg,var(--minecraft-green),#0a9e56);color:#fff;border-color:transparent}
+        .filter-btn[data-filter="lifesteal"].active,.filter-btn[data-filter="lifesteal"]:hover{background:linear-gradient(45deg,var(--lifesteal),#ff0066);color:#fff;border-color:transparent}
+        .filter-btn[data-filter="minigames"].active,.filter-btn[data-filter="minigames"]:hover{background:linear-gradient(45deg,var(--gold),#ffb300);color:#000;border-color:transparent}
+        .filter-btn[data-filter="publicsmp"].active,.filter-btn[data-filter="publicsmp"]:hover{background:linear-gradient(45deg,var(--smp),#6a0dad);color:#fff;border-color:transparent}
+
+        .servers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:2rem}
+        .server-card{
+            position:relative;background:var(--card-bg);border-radius:15px;overflow:hidden;
+            box-shadow:0 10px 30px rgba(0,0,0,.3);transition:var(--transition);border:1px solid rgba(255,255,255,.05)
+        }
+        .server-card:hover{transform:translateY(-15px);box-shadow:0 20px 40px rgba(0,0,0,.4),0 0 30px rgba(58,140,58,.15);border-color:rgba(74,143,231,.3)}
+        .card-banner{height:180px;overflow:hidden;position:relative}
+        .card-banner img{width:100%;height:100%;object-fit:cover;transition:var(--transition)}
+        .server-card:hover .card-banner img{transform:scale(1.1)}
+        .card-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,var(--card-bg));z-index:1}
+        .featured-badge{position:absolute;top:15px;right:15px;z-index:2;background:linear-gradient(45deg,var(--gold),#ffb300);color:#000;font-weight:600;padding:.3rem 1rem;border-radius:50px;font-size:.9rem;box-shadow:0 4px 15px rgba(255,215,0,.3)}
+        .server-status{position:absolute;top:15px;left:15px;padding:.3rem .8rem;border-radius:50px;font-size:.9rem;display:flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.6);z-index:2}
+        .status-online{color:var(--minecraft-green)}.status-offline{color:var(--nether)}
+        .status-indicator{width:10px;height:10px;border-radius:50%}.online .status-indicator{background:var(--minecraft-green);box-shadow:0 0 10px var(--minecraft-green)}
+        .offline .status-indicator{background:var(--nether)}
+        .card-content{padding:1.5rem}
+        .server-name{font-family:'Oxanium',sans-serif;font-size:1.5rem;margin-bottom:.5rem}
+        .server-description{color:var(--text-muted);margin-bottom:1.2rem;line-height:1.6}
+        .server-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+        .tag{padding:.3rem .8rem;border-radius:50px;font-size:.9rem;background:rgba(74,143,231,.15);color:var(--diamond)}
+        .tag-pvp{background:rgba(255,85,85,.15);color:var(--nether)}
+        .tag-survival{background:rgba(58,140,58,.15);color:var(--minecraft-green)}
+        .tag-minigames{background:rgba(255,215,0,.15);color:var(--gold)}
+        .tag-lifesteal{background:rgba(255,51,102,.15);color:var(--lifesteal)}
+        .tag-publicsmp{background:rgba(138,43,226,.15);color:var(--smp)}
+
+        /* ----  card actions (JOIN ONLY) ---- */
+        .card-actions{display:flex}
+        .join-btn{
+            flex:1;padding:.9rem;border-radius:10px;font-weight:600;cursor:pointer;
+            background:linear-gradient(45deg,var(--minecraft-green),#0a9e56);color:#fff;border:none;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:.6rem
+        }
+        .join-btn:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(58,140,58,.4);background:linear-gradient(45deg,#0a9e56,var(--minecraft-green))}
+
+        /* ====== simple toast ====== */
+        .toast{
+            position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+            background:var(--diamond);color:#fff;padding:1rem 2rem;border-radius:50px;box-shadow:0 5px 15px rgba(0,0,0,.3);
+            opacity:0;z-index:2000;transition:opacity .3s ease
+        }
+        .toast.show{opacity:1}
+
+        /* -----  animations  ---- */
+        @keyframes glow{0%{text-shadow:0 0 10px rgba(58,140,58,.5)}100%{text-shadow:0 0 30px rgba(58,140,58,.8),0 0 40px rgba(74,143,231,.6)}}
+        @keyframes pulse{0%{transform:scale(1);text-shadow:0 0 5px rgba(58,140,58,.5)}50%{transform:scale(1.1);text-shadow:0 0 15px rgba(58,140,58,.8)}100%{transform:scale(1);text-shadow:0 0 5px rgba(58,140,58,.5)}}
+
+        /* ======= responsive tweaks ======= */
+        @media(max-width:992px){.hero h1{font-size:3.5rem}.filters{flex-wrap:wrap}}
+        @media(max-width:768px){
+            header{flex-wrap:wrap;gap:1rem;padding:1rem}
+            .logo{order:1}.search-container{order:3;width:100%;margin-top:1rem}
+            nav{order:2;width:100%}nav ul{justify-content:center;gap:1rem;flex-wrap:wrap}
+            .servers-grid{grid-template-columns:1fr}
+        }
+    
+
+
+
+
+
+
+
+
+     BlockTop
+    
+        
+            Home
+            Top Servers
+            Contact
+            Advertise
+        
+    
+
+    
+    
+        
+        
+    
+
+
+
+
+    
+        Discover Amazing Minecraft Servers
+        Find the perfect Minecraft server for your play-style. Thousands of unique communities across all game modes.
+        Explore Servers
+    
+
+
+
+
+    
+        Top Rated Servers
+        
+            All
+            Survival
+            PvP
+            Lifesteal
+            Minigames
+            Public SMP
+        
+    
+
+    
+        
+        
+            
+                
+                FEATURED
+                Online
+            
+            
+                MineSuperior
+                Ultimate survival with factions and custom enchantments.
+                
+                    SurvivalEconomyFactions
+                
+                
+                    Join Now
+                
+            
+        
+
+        
+
+        
+            
+                
+                FEATURED
+                Online
+            
+            
+                Hypixel Network
+                Largest Minecraft server with 20+ minigames and constant updates.
+                
+                    MinigamesPvPBedWarsRanked
+                
+                
+                    Join Now
+                
+            
+        
+
+        
+    
+
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+/* ------------
+   PARTICLES – fresher vibe
+------------- */
+const canvas = document.getElementById('particle-canvas'),
+      ctx     = canvas.getContext('2d');
+let   W = canvas.width = window.innerWidth,
+      H = canvas.height = window.innerHeight;
+
+const particleCount = 140;                  // slightly more particles
+const colors = [                            // cooler palette
+    'rgba(93,230,255,0.8)',
+    'rgba(74,143,231,0.8)',
+    'rgba(173,92,255,0.8)',
+    'rgba(0,247,165,0.8)'
+];
+class Particle{
+    constructor(){
+        this.reset();
+    }
+    reset(){
+        this.x = Math.random()*W;
+        this.y = Math.random()*H;
+        this.size = Math.random()*2+1;
+        this.speedX = (Math.random()-.5)*.7;
+        this.speedY = (Math.random()-.5)*.7;
+        this.color = colors[Math.floor(Math.random()*colors.length)];
+    }
+    update(){
+        this.x+=this.speedX;
+        this.y+=this.speedY;
+        if(this.xW||this.yH) this.reset();
+    }
+    draw(){
+        ctx.fillStyle=this.color;
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
+}
+const particles = Array.from({length:particleCount},()=>new Particle());
+
+function animateParticles(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{p.update();p.draw()});
+    /* connecting lines */
+    for(let i=0;i{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight});
+
+/* ------------
+   SERVER CARD INTERACTION
+------------- */
+const serverCards = document.querySelectorAll('.server-card');
+serverCards.forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+        const rect = card.getBoundingClientRect(),
+              x = e.clientX-rect.left,
+              y = e.clientY-rect.top,
+              centerX = rect.width/2,
+              centerY = rect.height/2,
+              angleY = (x-centerX)/25,
+              angleX = (centerY-y)/25;
+        card.style.transform=`perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-15px)`;
+    });
+    card.addEventListener('mouseleave',()=> card.style.transform='perspective(1000px) rotateX(0) rotateY(0) translateY(0)');
+});
+
+/* ------------
+   SEARCH  – click icon or press Enter
+------------- */
+const searchInput = document.getElementById('server-search'),
+      searchBtn   = document.getElementById('search-btn'),
+      allCards    = document.querySelectorAll('.server-card');
+
+function performSearch(){
+    const term = searchInput.value.toLowerCase().trim();
+    if(!term){ allCards.forEach(c=>c.style.display='block'); return; }
+    allCards.forEach(card=>{
+        const name  = card.querySelector('.server-name').textContent.toLowerCase(),
+              desc  = card.querySelector('.server-description').textContent.toLowerCase(),
+              tags  = card.querySelector('.server-tags').textContent.toLowerCase();
+        card.style.display = (name.includes(term) || desc.includes(term) || tags.includes(term)) ? 'block':'none';
+    });
+    // smooth-scroll to results
+    document.getElementById('featured-servers').scrollIntoView({behavior:'smooth'});
+}
+searchBtn.addEventListener('click',performSearch);
+searchInput.addEventListener('keypress',e=>{ if(e.key==='Enter') performSearch(); });
+
+/* ------------
+   FILTER BUTTONS  (unchanged logic)
+------------- */
+const filterButtons = document.querySelectorAll('.filter-btn');
+filterButtons.forEach(btn=>{
+    btn.addEventListener('click',function(){
+        filterButtons.forEach(b=>b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+        allCards.forEach(card=>{
+            if(filter==='all'){card.style.display='block';return;}
+            const tags = card.dataset.tags.split(',');
+            card.style.display = tags.includes(filter) ? 'block':'none';
+        });
+    });
+});
+
+/* ------------
+   JOIN BUTTON  – show IP
+------------- */
+const toast = document.getElementById('toast');
+function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),3000);
+}
+document.querySelectorAll('.join-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        const card = btn.closest('.server-card'),
+              ip   = card.dataset.ip || 'ip.not.set';
+        showToast(`Server IP: ${ip}`);
+    });
+});
+
+/* ------------
+   CTA smooth-scroll
+------------- */
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+    anchor.addEventListener('click',e=>{
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if(target){e.preventDefault();window.scrollTo({top:target.offsetTop-80,behavior:'smooth'});}
+    });
+});
