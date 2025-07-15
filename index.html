@@ -2,486 +2,212 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SentryX Discord Bot - Official Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#2d46ff">
-  <link rel="icon" href="https://i.postimg.cc/jjhJPRFJ/Sentry-X-2.png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <title>SentryX | Terms & Privacy Policy</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Animate on Scroll CDN -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
-    :root {
-      --main: #2d46ff;
-      --accent: #6a81ff;
-      --background: #101123;
-      --card: rgba(25, 30, 55, 0.93);
-      --glass: rgba(22, 25, 44, 0.88);
-      --shadow: 0 8px 48px 0 #2d46ff50, 0 0 0 2px #2d46ff1c;
-      --radius: 26px;
-      --premium: #ffd700;
-      --section-gap: 70px;
-      --nav-height: 60px;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      width: 100vw;
-      box-sizing: border-box;
-      font-family: 'Montserrat', 'Clash Display', sans-serif;
-      background: var(--background);
-      color: #f5f7ff;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-    .navbar {
-      width: 100%;
-      background: rgba(13,17,34,0.88);
-      box-shadow: 0 2px 20px #2d46ff18;
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      min-height: var(--nav-height);
-      transition: background 0.5s;
-      border-bottom: 1px solid #26284d40;
-    }
-    .navbar-inner {
-      max-width: 1100px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 36px;
-      min-height: var(--nav-height);
-    }
-    .navbar-logo {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      cursor: pointer;
-      user-select: none;
-    }
-    .navbar-logo img {
-      width: 40px;
-      height: 40px;
-      border-radius: 26%;
-      box-shadow: 0 0 10px #2d46ff85;
-      background: #1a1e34;
-    }
-    .navbar-logo span {
-      font-family: 'Clash Display', 'Montserrat', sans-serif;
-      font-size: 1.35rem;
-      font-weight: 900;
-      color: var(--accent);
-      letter-spacing: 1px;
-      text-shadow: 0 2px 10px #2d46ff30;
-      margin-left: 4px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-    }
-    .nav-link {
-      color: #c1c9ff;
-      font-weight: bold;
-      font-size: 1.04rem;
-      text-decoration: none;
-      background: none;
-      border: none;
-      padding: 7px 18px;
-      border-radius: 24px;
-      cursor: pointer;
-      outline: none;
-      transition: color .17s, background .21s, transform .2s;
-      letter-spacing: 0.1em;
-    }
-    .nav-link.active, .nav-link:hover {
-      background: linear-gradient(90deg, var(--main) 20%, var(--accent) 90%);
-      color: #fff;
-      transform: scale(1.08);
-      box-shadow: 0 2px 14px #2d46ff45;
-    }
-    /* HERO */
-    .hero-section {
-      position: relative;
-      min-height: 93vh;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 110px 0 60px 0;
-      background: transparent;
-      z-index: 2;
-      overflow: visible;
-      flex-direction: column;
-    }
-    .hero-bg-blob {
-      position: absolute;
-      left: 0; top: 0;
-      width: 100vw; height: 120vh;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.47;
-      background: radial-gradient(circle at 20% 30%, #2d46ff99 0 24%, #101123 50% 100%);
-      filter: blur(40px) saturate(1.3);
-      animation: heroBlobAnim 11s ease-in-out infinite alternate;
-    }
-    @keyframes heroBlobAnim {
-      0% {transform: scale(1) translateY(0);}
-      100% {transform: scale(1.09) translateY(-25px);}
-    }
-    .hero-content {
-      background: var(--glass);
-      border-radius: 44px;
-      box-shadow: var(--shadow);
-      padding: 64px 48px 56px 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 34px;
-      max-width: 520px;
-      width: 95vw;
-      z-index: 1;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 30%;
-      background: linear-gradient(135deg, var(--main) 0%, var(--accent) 100%);
-      box-shadow: 0 0 36px #2d46ff99, 0 2px 14px #0006;
-      padding: 11px;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: heroFloat 4s ease-in-out infinite alternate;
-      transition: transform .24s cubic-bezier(.63,-0.17,.53,1.21);
-    }
-    @keyframes heroFloat { 0%{ transform:translateY(0);} 100%{transform:translateY(-13px);} }
-    .hero-logo img {
-      width: 100%;
-      height: 100%;
-      border-radius: 22%;
-      box-shadow: 0 0 0 4px #23264b;
-      z-index: 2;
-    }
-    /* Confetti animation wrapper for hero */
-    .confetti-hero {
-      position: absolute;
-      left: 0; top: 0; width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 10;
-      overflow: visible;
-    }
-    /* LIVE BADGE */
-    .launch-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(92deg, #51ffdc 0%, #2d46ff 70%);
-      color: #fff;
-      font-weight: 900;
-      font-family: 'Clash Display', 'Montserrat', sans-serif;
-      padding: 7px 22px 7px 17px;
-      border-radius: 23px;
-      font-size: 1.07em;
-      box-shadow: 0 0 30px #2d46ff40;
-      margin-bottom: 9px;
-      margin-top: 1px;
-      letter-spacing: 0.08em;
-      animation: pulseBadge 1.4s infinite alternate;
-      border: 2.5px solid #aef7ff;
-      position: relative;
-      z-index: 2;
-    }
-    @keyframes pulseBadge {
-      0% { box-shadow: 0 0 18px #84f8fe73, 0 0 0 #fff0; }
-      100% { box-shadow: 0 0 38px #aef7ffb5, 0 0 8px #2d46ff60; }
-    }
-    .launch-badge span {
-      font-size: 1.14em;
-      vertical-align: middle;
-    }
-    .hero-title {
-      font-family: 'Clash Display', 'Montserrat', sans-serif;
-      font-size: 2.9rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, var(--accent) 20%, var(--main) 70%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 2.5px;
-      margin-bottom: 0;
-      text-shadow: 0 2px 14px #2d46ff30;
-      animation: none;
-    }
-    .hero-desc {
-      font-size: 1.15rem;
-      color: #e0e6ff;
-      font-weight: 500;
-      line-height: 1.85;
-      margin-bottom: 7px;
-      text-align: center;
-      letter-spacing: .05em;
-    }
-    .hero-cycle {
-      font-weight: 900;
-      background: linear-gradient(90deg,#84f8fe 10%,#ffe38a 80%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-      font-size: 1.1em;
-      letter-spacing: .03em;
-      margin: 0 2px;
-      min-height: 1.3em;
-      transition: color .27s;
-    }
-    .hero-cta {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-items: center;
-    }
-    .invite-btn {
-      background: linear-gradient(95deg, var(--main), var(--accent) 93%);
-      color: #fff;
-      font-size: 1.18rem;
-      font-weight: bold;
-      padding: 16px 48px;
-      border: none;
-      border-radius: 42px;
-      box-shadow: 0 0 18px #2d46ff88;
-      cursor: pointer;
-      outline: none;
-      letter-spacing: 1px;
-      margin-top: 7px;
-      position: relative;
-      overflow: hidden;
-      z-index: 2;
-      transition: all .17s cubic-bezier(.79,.04,.41,1.19), box-shadow .21s;
-      will-change: transform;
-      animation: pulseGlow 2.5s infinite alternate;
-    }
-    @keyframes pulseGlow {0%{box-shadow:0 0 18px #2d46ffbb;}100%{box-shadow:0 0 38px #2d46ffcc;}}
-    .invite-btn:hover, .invite-btn:focus {
-      background: linear-gradient(90deg, #3d66ff 10%, #a6b5ff 100%);
-      box-shadow: 0 0 46px #2d46ffcc;
-      transform: scale(1.055) rotate(-1.3deg);
-    }
-    /* SECTION TITLES */
-    .section-title {
-      font-size: 2.15rem;
-      font-family: 'Clash Display', 'Montserrat', sans-serif;
-      font-weight: 900;
-      margin-bottom: 13px;
-      letter-spacing: 1px;
-      text-align: center;
-      background: linear-gradient(90deg, var(--main) 0%, var(--accent) 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 14px #2d46ff28;
-    }
-    /* FEATURES, PREMIUM, TEAM, COMMUNITY */
-    /* (Same as previous code for those sections...) */
-    /* Just keeping code clean for brevity! Use all previous style blocks for these. */
-
-    /* Responsive improvements: */
-    @media (max-width: 700px) {
-      .hero-title { font-size: 2rem; }
-      .hero-content {padding: 22px 2vw 18px 2vw;}
-      .navbar-inner {padding: 7px 2vw;}
-    }
-    @media (max-width: 500px) {
-      .hero-logo { width: 80px; height: 80px; }
+    body { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+    .gradient-bg {
+      background: linear-gradient(135deg, #eaf2ff 0%, #e3ecfa 100%);
     }
   </style>
 </head>
-<body>
-  <!-- Animated Hero Blob -->
-  <div class="hero-bg-blob"></div>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="navbar-inner">
-      <div class="navbar-logo" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})">
-        <img src="https://i.postimg.cc/jjhJPRFJ/Sentry-X-2.png" alt="SentryX Logo">
-        <span>SentryX</span>
-      </div>
-      <div class="nav-links">
-        <a class="nav-link active" href="#hero" onclick="setActiveNav(this)">Home</a>
-        <a class="nav-link" href="#features" onclick="setActiveNav(this)">Features</a>
-        <a class="nav-link" href="#premium" onclick="setActiveNav(this)">Premium</a>
-        <a class="nav-link" href="#team" onclick="setActiveNav(this)">Team</a>
-        <a class="nav-link" href="#community" onclick="setActiveNav(this)">Community</a>
-      </div>
+<body class="gradient-bg min-h-screen flex flex-col">
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between p-4 md:px-10 bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+    <div class="flex items-center gap-3">
+      <img src="https://i.postimg.cc/jjhJPRFJ/Sentry-X-2.png" alt="SentryX Logo" class="w-12 h-12 rounded-xl shadow-xl">
+      <span class="text-2xl font-bold tracking-tight text-[#4B90FF]">SentryX</span>
+    </div>
+    <div class="flex gap-4 items-center">
+      <a href="#terms" class="hover:text-[#4B90FF] font-medium transition-all">Terms</a>
+      <a href="#privacy" class="hover:text-[#4B90FF] font-medium transition-all">Privacy</a>
+      <a href="https://discord.gg/Syn4RGNjCF" target="_blank" class="px-3 py-1 rounded-md bg-[#4B90FF] text-white font-semibold shadow hover:bg-[#3269c7] transition ml-3">Join Discord</a>
+      <a href="https://discord.com/oauth2/authorize?client_id=1393914240263389225&permissions=8&scope=bot%20applications.commands" target="_blank" class="px-3 py-1 rounded-md border border-[#4B90FF] text-[#4B90FF] font-semibold hover:bg-[#eaf2ff] transition">Invite Bot</a>
     </div>
   </nav>
-  <!-- HERO SECTION -->
-  <section class="hero-section" id="hero">
-    <div class="hero-content" data-aos="fade-up" data-aos-delay="110">
-      <div class="launch-badge"><span>🚀</span>LIVE — Launched Today!</div>
-      <div class="confetti-hero" id="confettiHero"></div>
-      <div class="hero-logo" id="heroLogo">
-        <img src="https://i.postimg.cc/jjhJPRFJ/Sentry-X-2.png" alt="SentryX Logo">
-      </div>
-      <div class="hero-title" id="heroTitle">SentryX</div>
-      <div class="hero-desc">
-        <b>The Ultimate Discord Security & Utility Bot</b><br>
-        <span class="hero-cycle" id="heroCycle"></span>
-        <br>
-        Trusted by hundreds, easy for everyone.<br>
-        <span style="color:#9cffb0;font-weight:700;font-size:1.07em;">Public Launch — Get Protected Instantly!</span>
-      </div>
-      <div class="hero-cta">
-        <a href="https://discord.com/oauth2/authorize?client_id=1393914240263389225&permissions=8&scope=bot%20applications.commands" target="_blank" class="invite-btn" id="inviteBtn">
-          🚀 Invite SentryX Now
-        </a>
-      </div>
+
+  <!-- Hero Section -->
+  <section class="max-w-3xl mx-auto text-center pt-16 pb-10 px-4" data-aos="fade-down">
+    <img src="https://i.postimg.cc/jjhJPRFJ/Sentry-X-2.png" alt="SentryX Logo" class="mx-auto w-24 rounded-2xl shadow-xl mb-5">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-[#4B90FF] mb-4 drop-shadow">SentryX Documentation</h1>
+    <p class="text-lg text-gray-700 mb-6">
+      The ultimate secure, advanced Discord bot management system.<br>
+      <span class="text-[#4B90FF] font-semibold">Read our Terms of Service and Privacy Policy below.</span>
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 mt-4">
+      <a href="#terms" class="px-6 py-3 rounded-xl bg-[#4B90FF] text-white font-bold shadow hover:bg-[#3269c7] transition">Terms & Conditions</a>
+      <a href="#privacy" class="px-6 py-3 rounded-xl bg-white border border-[#4B90FF] text-[#4B90FF] font-bold shadow hover:bg-[#eaf2ff] transition">Privacy Policy</a>
+    </div>
+    <div class="mt-10 text-center text-gray-500">
+      <span class="block">Bot Owner: <span class="font-medium text-[#4B90FF]">DevCrafters</span></span>
+      <span class="block">Bot Founder: <span class="font-medium text-[#4B90FF]">Nobita</span></span>
+      <span class="block">Bot Public Date: <span class="font-medium text-[#4B90FF]">14-07-2025</span></span>
     </div>
   </section>
 
-  <!-- ...Your Features, Premium, Team, and Community sections (unchanged, reuse previous code!) ... -->
+  <!-- Main Content -->
+  <main class="flex flex-col md:flex-row max-w-6xl mx-auto px-4 pb-20 gap-8">
+    <!-- Sidebar Navigation -->
+    <aside class="hidden md:flex flex-col gap-4 sticky top-36 min-w-[200px] h-fit" data-aos="fade-right">
+      <a href="#terms" class="py-2 px-3 rounded-xl hover:bg-[#E7F0FF] font-medium text-[#4B90FF] transition">Terms of Service</a>
+      <a href="#privacy" class="py-2 px-3 rounded-xl hover:bg-[#E7F0FF] font-medium text-[#4B90FF] transition">Privacy Policy</a>
+    </aside>
+    
+    <!-- Documentation Sections -->
+    <div class="flex-1">
+      <!-- Terms of Service -->
+      <section id="terms" class="bg-white/95 rounded-2xl shadow-xl p-6 mb-8 border-l-4 border-[#4B90FF]/40" data-aos="fade-up">
+        <h2 class="text-2xl font-bold mb-3 text-[#4B90FF]">Terms & Conditions</h2>
+        <div class="text-gray-800 text-base leading-relaxed space-y-6">
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">1. Introduction</h3>
+            <p>
+              Welcome to <strong>SentryX</strong>. By using our Discord bot (“SentryX”) and related services, you agree to comply with these Terms & Conditions. Please read them carefully before using SentryX.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">2. Acceptance of Terms</h3>
+            <p>
+              By inviting or using SentryX in your Discord server, you signify your acceptance of these Terms. If you do not agree, please remove the bot from your server immediately.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">3. Eligibility & Bot Usage</h3>
+            <ul class="list-disc ml-7">
+              <li>You must have appropriate permissions to add/configure the bot in your server.</li>
+              <li>SentryX is provided as-is, with no guarantee of uninterrupted or error-free operation.</li>
+              <li>We reserve the right to add, remove, or modify features at any time.</li>
+              <li>Misuse, abuse, or attempts to exploit the bot may result in a ban or restriction.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">4. User Conduct</h3>
+            <ul class="list-disc ml-7">
+              <li>You may not use SentryX for illegal, abusive, or harmful purposes.</li>
+              <li>Do not attempt to reverse-engineer, exploit, or attack SentryX’s systems.</li>
+              <li>Harassment or misuse of features is strictly prohibited.</li>
+              <li>Follow Discord’s <a href="https://discord.com/terms" target="_blank" class="text-[#4B90FF] underline">Terms of Service</a> and <a href="https://discord.com/guidelines" target="_blank" class="text-[#4B90FF] underline">Community Guidelines</a> at all times.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">5. Data & Content</h3>
+            <ul class="list-disc ml-7">
+              <li>SentryX only accesses data required for its features and functions.</li>
+              <li>We do not store your messages or sensitive user content except for moderation/anti-abuse records, which are kept secure and minimal.</li>
+              <li>For more info, see our <a href="#privacy" class="text-[#4B90FF] underline">Privacy Policy</a>.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">6. Limitation of Liability</h3>
+            <p>
+              SentryX and its creators (DevCrafters, Nobita) are not liable for any damages, losses, or issues resulting from the use of the bot. Usage is at your own risk.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">7. Changes to Terms</h3>
+            <p>
+              We reserve the right to update these Terms at any time. Notice will be provided on our Discord server or via an in-bot announcement. Continued use means you accept the updated terms.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">8. Contact & Support</h3>
+            <p>
+              For questions, support, or feedback, join our <a href="https://discord.gg/Syn4RGNjCF" target="_blank" class="text-[#4B90FF] underline">Discord server</a> or email us at <a href="mailto:devcrafters17@gmail.com" class="text-[#4B90FF] underline">devcrafters17@gmail.com</a>.
+            </p>
+          </div>
+        </div>
+      </section>
 
-  <!-- Animation Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <!-- Privacy Policy -->
+      <section id="privacy" class="bg-white/95 rounded-2xl shadow-xl p-6 mb-8 border-l-4 border-[#4B90FF]/40" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="text-2xl font-bold mb-3 text-[#4B90FF]">Privacy Policy</h2>
+        <div class="text-gray-800 text-base leading-relaxed space-y-6">
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">1. Data Collection</h3>
+            <p>
+              SentryX collects only the minimal data necessary for providing its services and features. This includes:
+            </p>
+            <ul class="list-disc ml-7">
+              <li>Server IDs, channel IDs, and user IDs (for configuration and moderation)</li>
+              <li>Moderation records (bans, kicks, warnings, mutes, etc.)</li>
+              <li>Settings and preferences per server (e.g., logging, automod)</li>
+            </ul>
+            <p>
+              <strong>We do not store message content or personal user data beyond what is required for moderation and core functionality.</strong>
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">2. How We Use Data</h3>
+            <ul class="list-disc ml-7">
+              <li>To deliver and improve SentryX’s features (moderation, logging, automod, etc.)</li>
+              <li>To detect and prevent spam, abuse, and security threats</li>
+              <li>To provide support and maintain system stability</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">3. Third-Party Services</h3>
+            <p>
+              SentryX does not share your data with third parties, advertisers, or analytics providers.  
+              The only third-party service involved is Discord itself, governed by its own <a href="https://discord.com/privacy" target="_blank" class="text-[#4B90FF] underline">privacy policy</a>.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">4. Data Retention</h3>
+            <p>
+              We retain only necessary server and moderation data as long as you use SentryX.  
+              If you remove SentryX from your server, your stored data is deleted within 30 days.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">5. User Rights</h3>
+            <ul class="list-disc ml-7">
+              <li>You may request deletion of your server’s stored data by contacting us on Discord or email.</li>
+              <li>As an end user, your personal Discord account data is not stored by SentryX.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">6. Data Security</h3>
+            <ul class="list-disc ml-7">
+              <li>All stored data is kept securely with best industry practices.</li>
+              <li>Access is strictly limited to authorized bot developers (DevCrafters, Nobita).</li>
+              <li>No user passwords or private messages are ever stored.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">7. Changes to Privacy Policy</h3>
+            <p>
+              We may update this Privacy Policy as needed. Notice of changes will be provided in our Discord server and via the bot.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">8. Contact</h3>
+            <p>
+              For privacy questions or data removal, please contact us via our <a href="https://discord.gg/Syn4RGNjCF" target="_blank" class="text-[#4B90FF] underline">Discord server</a> or email <a href="mailto:devcrafters17@gmail.com" class="text-[#4B90FF] underline">devcrafters17@gmail.com</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full text-center py-6 text-gray-500 font-medium bg-white/50 mt-auto">
+    &copy; 2025 SentryX &middot; Built by DevCrafters &middot; Founder: Nobita
+  </footer>
+
+  <!-- Animate on Scroll JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // AOS on-scroll animation
     AOS.init({
-      duration: 900,
-      delay: 90,
       once: true,
-      offset: 80
-    });
-
-    // Navbar active link on scroll
-    function setActiveNav(el) {
-      document.querySelectorAll('.nav-link').forEach(link=>link.classList.remove('active'));
-      el.classList.add('active');
-    }
-    window.addEventListener('scroll', () => {
-      let sections = ['hero','features','premium','team','community'];
-      for (let i = sections.length-1; i >= 0; i--) {
-        let s = document.getElementById(sections[i]);
-        if (window.scrollY + 95 >= s.offsetTop) {
-          document.querySelectorAll('.nav-link').forEach(link=>link.classList.remove('active'));
-          document.querySelector('.nav-link[href="#'+sections[i]+'"]').classList.add('active');
-          break;
-        }
-      }
-    });
-
-    // Hero logo parallax & magnetic effect
-    const heroLogo = document.getElementById('heroLogo');
-    heroLogo.addEventListener('mousemove', function(e){
-      let x = (e.offsetX - this.offsetWidth/2)/9;
-      let y = (e.offsetY - this.offsetHeight/2)/9;
-      this.style.transform = `translate(${x}px,${y}px) scale(1.08)`;
-    });
-    heroLogo.addEventListener('mouseleave', function(){
-      this.style.transform = "translate(0,0) scale(1)";
-    });
-
-    // Animated word cycling in hero
-    const heroCycleWords = [
-      "Real-time Security.",
-      "Auto-Moderation.",
-      "Detailed Logs.",
-      "Fun Utilities.",
-      "24/7 Defense.",
-      "Giveaways & Roles."
-    ];
-    let heroCycleIndex = 0;
-    function showCycleWord() {
-      const el = document.getElementById('heroCycle');
-      el.innerText = heroCycleWords[heroCycleIndex];
-      gsap.fromTo(el, {opacity:0, y:30}, {opacity:1, y:0, duration:.7, ease:"power2.out"});
-      setTimeout(()=>{
-        gsap.to(el, {opacity:0, y:-12, duration:.5, onComplete:()=>{
-          heroCycleIndex = (heroCycleIndex+1)%heroCycleWords.length;
-          showCycleWord();
-        }});
-      }, 1100);
-    }
-    showCycleWord();
-
-    // Magnetic Invite button & confetti on click
-    const inviteBtn = document.getElementById('inviteBtn');
-    inviteBtn.addEventListener('mousemove', function(e) {
-      const rect = this.getBoundingClientRect();
-      let x = e.clientX - rect.left - rect.width/2;
-      let y = e.clientY - rect.top - rect.height/2;
-      gsap.to(this, {x:x/8, y:y/8, duration:.22, ease:"power2.out"});
-    });
-    inviteBtn.addEventListener('mouseleave', function() {
-      gsap.to(this, {x:0, y:0, duration:.23, ease:"power2.out"});
-    });
-    // Confetti burst on click
-    inviteBtn.addEventListener('click', function(e) {
-      const btn = this;
-      for(let i=0;i<14;i++){
-        let conf = document.createElement('span');
-        conf.style.position = 'absolute';
-        conf.style.left = (e.offsetX || 85)+'px';
-        conf.style.top = (e.offsetY || 22)+'px';
-        conf.style.width = '8px';
-        conf.style.height = '8px';
-        conf.style.background = `hsl(${Math.random()*360},100%,72%)`;
-        conf.style.borderRadius = '60%';
-        conf.style.opacity = 0.85;
-        conf.style.zIndex = 10;
-        btn.appendChild(conf);
-        gsap.to(conf, {
-          x: (Math.random()-0.5)*130,
-          y: (Math.random()-0.6)*88-30,
-          scale: 0.8+Math.random()*0.9,
-          opacity:0,
-          duration: 1.5,
-          ease: "power3.out",
-          onComplete: ()=>conf.remove()
-        });
-      }
-    });
-
-    // Hero section launch confetti on page load
-    function launchHeroConfetti() {
-      const container = document.getElementById('confettiHero');
-      const bounds = container.getBoundingClientRect();
-      for (let i = 0; i < 24; i++) {
-        let c = document.createElement('span');
-        c.style.position = 'absolute';
-        c.style.left = (Math.random() * bounds.width) + 'px';
-        c.style.top = (80 + Math.random() * (bounds.height-100)) + 'px';
-        c.style.width = (10+Math.random()*10)+'px';
-        c.style.height = (7+Math.random()*10)+'px';
-        c.style.background = `hsl(${Math.random()*360},90%,${70+Math.random()*20}%)`;
-        c.style.borderRadius = Math.random() > 0.6 ? '50%' : '40% 50% 70% 50% / 60% 30% 70% 50%';
-        c.style.opacity = 0.94;
-        c.style.zIndex = 11;
-        container.appendChild(c);
-        gsap.to(c, {
-          x: (Math.random()-0.5)*130,
-          y: -90 - Math.random()*70,
-          rotation: Math.random()*200,
-          scale: 0.7+Math.random()*1.2,
-          opacity:0,
-          duration: 2.9 + Math.random(),
-          ease: "power2.out",
-          onComplete: ()=>c.remove()
-        });
-      }
-    }
-    window.addEventListener('DOMContentLoaded', ()=> {
-      setTimeout(launchHeroConfetti, 300);
+      duration: 700,
+      easing: 'ease-out-cubic'
     });
   </script>
 </body>
 </html>
-
-
