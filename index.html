@@ -1,213 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SentryX | Terms & Privacy Policy</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Animate on Scroll CDN -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="OrbriX Discord Bot - Terms of Service and Privacy Policy">
+  <title>SentryX | Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    html { scroll-behavior: smooth; }
-    .gradient-bg {
-      background: linear-gradient(135deg, #eaf2ff 0%, #e3ecfa 100%);
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f1f1f1;
+      animation: fadeIn 1.2s ease-in;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+    header img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px #3fa9f5;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+    }
+    header p {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+    nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 15px;
+      font-weight: bold;
+      color: #4dc3ff;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      animation: slideUp 0.9s ease-in-out;
+    }
+    h2 {
+      color: #4dd0e1;
+      border-bottom: 2px solid #4dd0e1;
+      padding-bottom: 0.5rem;
+    }
+    p, a {
+      line-height: 1.6;
+      color: #d1eaff;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
-<body class="gradient-bg min-h-screen flex flex-col">
-  <!-- Navbar -->
-  <nav class="flex items-center justify-between p-4 md:px-10 bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
-    <div class="flex items-center gap-3">
-      <img src="https://i.postimg.cc/jjhJPRFJ/Sentry-X-2.png" alt="SentryX Logo" class="w-12 h-12 rounded-xl shadow-xl">
-      <span class="text-2xl font-bold tracking-tight text-[#4B90FF]">SentryX</span>
-    </div>
-    <div class="flex gap-4 items-center">
-      <a href="#terms" class="hover:text-[#4B90FF] font-medium transition-all">Terms</a>
-      <a href="#privacy" class="hover:text-[#4B90FF] font-medium transition-all">Privacy</a>
-      <a href="https://discord.gg/Syn4RGNjCF" target="_blank" class="px-3 py-1 rounded-md bg-[#4B90FF] text-white font-semibold shadow hover:bg-[#3269c7] transition ml-3">Join Discord</a>
-      <a href="https://discord.com/oauth2/authorize?client_id=1393914240263389225&permissions=8&scope=bot%20applications.commands" target="_blank" class="px-3 py-1 rounded-md border border-[#4B90FF] text-[#4B90FF] font-semibold hover:bg-[#eaf2ff] transition">Invite Bot</a>
-    </div>
-  </nav>
+<body>
+  <header>
+    <img src="https://i.postimg.cc/fysPY6ND/Chat-GPT-Image-Jul-26-2025-01-06-38-PM.png" alt="OrbriX Bot Logo">
+    <h1>Welcome to SentryX</h1>
+    <p>Powerful Discord Bot | Anti-Nuke • Moderation • Utility & More</p>
+    <nav>
+      <a href="#tos">Terms of Service</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="max-w-3xl mx-auto text-center pt-16 pb-10 px-4" data-aos="fade-down">
-    <img src="https://i.postimg.cc/jjhJPRFJ/Sentry-X-2.png" alt="SentryX Logo" class="mx-auto w-24 rounded-2xl shadow-xl mb-5">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-[#4B90FF] mb-4 drop-shadow">SentryX Documentation</h1>
-    <p class="text-lg text-gray-700 mb-6">
-      The ultimate secure, advanced Discord bot management system.<br>
-      <span class="text-[#4B90FF] font-semibold">Read our Terms of Service and Privacy Policy below.</span>
+  <div class="content" id="tos">
+    <h2>Terms of Service</h2>
+    <p>
+      By inviting and using the OrbriX Discord Bot, you agree to abide by these Terms of Service. Users must comply with <a href="https://discord.com/terms" target="_blank">Discord’s Terms of Service</a> at all times.
     </p>
-    <div class="flex flex-wrap justify-center gap-4 mt-4">
-      <a href="#terms" class="px-6 py-3 rounded-xl bg-[#4B90FF] text-white font-bold shadow hover:bg-[#3269c7] transition">Terms & Conditions</a>
-      <a href="#privacy" class="px-6 py-3 rounded-xl bg-white border border-[#4B90FF] text-[#4B90FF] font-bold shadow hover:bg-[#eaf2ff] transition">Privacy Policy</a>
-    </div>
-    <div class="mt-10 text-center text-gray-500">
-      <span class="block">Bot Owner: <span class="font-medium text-[#4B90FF]">Nobita</span></span>
-      <span class="block">Bot Developer: <span class="font-medium text-[#4B90FF]">DevCrafters</span></span>
-      <span class="block">Bot Public Date: <span class="font-medium text-[#4B90FF]">14-07-2025</span></span>
-    </div>
-  </section>
+    <p>
+      - Users must be at least 13 years old.<br>
+      - Any misuse of the bot, including spamming or attempting to exploit vulnerabilities, is strictly prohibited.<br>
+      - We reserve the right to terminate service to any user or server at any time, without notice.<br>
+      - These terms may be updated anytime. Continued use means you agree to the new terms.
+    </p>
+  </div>
 
-  <!-- Main Content -->
-  <main class="flex flex-col md:flex-row max-w-6xl mx-auto px-4 pb-20 gap-8">
-    <!-- Sidebar Navigation -->
-    <aside class="hidden md:flex flex-col gap-4 sticky top-36 min-w-[200px] h-fit" data-aos="fade-right">
-      <a href="#terms" class="py-2 px-3 rounded-xl hover:bg-[#E7F0FF] font-medium text-[#4B90FF] transition">Terms of Service</a>
-      <a href="#privacy" class="py-2 px-3 rounded-xl hover:bg-[#E7F0FF] font-medium text-[#4B90FF] transition">Privacy Policy</a>
-    </aside>
-    
-    <!-- Documentation Sections -->
-    <div class="flex-1">
-      <!-- Terms of Service -->
-      <section id="terms" class="bg-white/95 rounded-2xl shadow-xl p-6 mb-8 border-l-4 border-[#4B90FF]/40" data-aos="fade-up">
-        <h2 class="text-2xl font-bold mb-3 text-[#4B90FF]">Terms & Conditions</h2>
-        <div class="text-gray-800 text-base leading-relaxed space-y-6">
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">1. Introduction</h3>
-            <p>
-              Welcome to <strong>SentryX</strong>. By using our Discord bot (“SentryX”) and related services, you agree to comply with these Terms & Conditions. Please read them carefully before using SentryX.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">2. Acceptance of Terms</h3>
-            <p>
-              By inviting or using SentryX in your Discord server, you signify your acceptance of these Terms. If you do not agree, please remove the bot from your server immediately.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">3. Eligibility & Bot Usage</h3>
-            <ul class="list-disc ml-7">
-              <li>You must have appropriate permissions to add/configure the bot in your server.</li>
-              <li>SentryX is provided as-is, with no guarantee of uninterrupted or error-free operation.</li>
-              <li>We reserve the right to add, remove, or modify features at any time.</li>
-              <li>Misuse, abuse, or attempts to exploit the bot may result in a ban or restriction.</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">4. User Conduct</h3>
-            <ul class="list-disc ml-7">
-              <li>You may not use SentryX for illegal, abusive, or harmful purposes.</li>
-              <li>Do not attempt to reverse-engineer, exploit, or attack SentryX’s systems.</li>
-              <li>Harassment or misuse of features is strictly prohibited.</li>
-              <li>Follow Discord’s <a href="https://discord.com/terms" target="_blank" class="text-[#4B90FF] underline">Terms of Service</a> and <a href="https://discord.com/guidelines" target="_blank" class="text-[#4B90FF] underline">Community Guidelines</a> at all times.</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">5. Data & Content</h3>
-            <ul class="list-disc ml-7">
-              <li>SentryX only accesses data required for its features and functions.</li>
-              <li>We do not store your messages or sensitive user content except for moderation/anti-abuse records, which are kept secure and minimal.</li>
-              <li>For more info, see our <a href="#privacy" class="text-[#4B90FF] underline">Privacy Policy</a>.</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">6. Limitation of Liability</h3>
-            <p>
-              SentryX and its creators (DevCrafters, Nobita) are not liable for any damages, losses, or issues resulting from the use of the bot. Usage is at your own risk.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">7. Changes to Terms</h3>
-            <p>
-              We reserve the right to update these Terms at any time. Notice will be provided on our Discord server or via an in-bot announcement. Continued use means you accept the updated terms.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">8. Contact & Support</h3>
-            <p>
-              For questions, support, or feedback, join our <a href="https://discord.gg/Syn4RGNjCF" target="_blank" class="text-[#4B90FF] underline">Discord server</a> or email us at <a href="mailto:devcrafters.india@gmail.com" class="text-[#4B90FF] underline">devcrafters17@gmail.com</a>.
-            </p>
-          </div>
-        </div>
-      </section>
+  <div class="content" id="privacy">
+    <h2>Privacy Policy</h2>
+    <p>
+      SentryX is committed to user privacy and security. We do not collect, share, or store any sensitive user or server data unless it is required for the bot's core functionality and improvement.
+    </p>
+    <p>
+      - We DO NOT store server owner passwords or any confidential access.<br>
+      - We DO NOT share any data with third parties or advertisers.<br>
+      - Data collected (such as user IDs, server IDs, command usage) is strictly for analytics and feature improvement purposes.<br>
+      - If users request deletion of data, we will comply fully within a reasonable timeframe.
+    </p>
+  </div>
 
-      <!-- Privacy Policy -->
-      <section id="privacy" class="bg-white/95 rounded-2xl shadow-xl p-6 mb-8 border-l-4 border-[#4B90FF]/40" data-aos="fade-up" data-aos-delay="100">
-        <h2 class="text-2xl font-bold mb-3 text-[#4B90FF]">Privacy Policy</h2>
-        <div class="text-gray-800 text-base leading-relaxed space-y-6">
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">1. Data Collection</h3>
-            <p>
-              SentryX collects only the minimal data necessary for providing its services and features. This includes:
-            </p>
-            <ul class="list-disc ml-7">
-              <li>Server IDs, channel IDs, and user IDs (for configuration and moderation)</li>
-              <li>Moderation records (bans, kicks, warnings, mutes, etc.)</li>
-              <li>Settings and preferences per server (e.g., logging, automod)</li>
-            </ul>
-            <p>
-              <strong>We do not store message content or personal user data beyond what is required for moderation and core functionality.</strong>
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">2. How We Use Data</h3>
-            <ul class="list-disc ml-7">
-              <li>To deliver and improve SentryX’s features (moderation, logging, automod, etc.)</li>
-              <li>To detect and prevent spam, abuse, and security threats</li>
-              <li>To provide support and maintain system stability</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">3. Third-Party Services</h3>
-            <p>
-              SentryX does not share your data with third parties, advertisers, or analytics providers.  
-              The only third-party service involved is Discord itself, governed by its own <a href="https://discord.com/privacy" target="_blank" class="text-[#4B90FF] underline">privacy policy</a>.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">4. Data Retention</h3>
-            <p>
-              We retain only necessary server and moderation data as long as you use SentryX.  
-              If you remove SentryX from your server, your stored data is deleted within 30 days.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">5. User Rights</h3>
-            <ul class="list-disc ml-7">
-              <li>You may request deletion of your server’s stored data by contacting us on Discord or email.</li>
-              <li>As an end user, your personal Discord account data is not stored by SentryX.</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">6. Data Security</h3>
-            <ul class="list-disc ml-7">
-              <li>All stored data is kept securely with best industry practices.</li>
-              <li>Access is strictly limited to authorized bot developers (DevCrafters).</li>
-              <li>No user passwords or private messages are ever stored.</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">7. Changes to Privacy Policy</h3>
-            <p>
-              We may update this Privacy Policy as needed. Notice of changes will be provided in our Discord server and via the bot.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1 text-[#3269c7]">8. Contact</h3>
-            <p>
-              For privacy questions or data removal, please contact us via our <a href="https://discord.gg/Syn4RGNjCF" target="_blank" class="text-[#4B90FF] underline">Discord server</a> or email <a href="mailto:devcrafters17@gmail.com" class="text-[#4B90FF] underline">devcrafters17@gmail.com</a>.
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
+  <div class="content" id="contact">
+    <h2>Contact & Support</h2>
+    <p>
+      For any questions, suggestions, or data inquiries, please contact the OrbriX Team:<br>
+      📧 Email: <a href="mailto:devcrafters.india@gmail.com">devcrafters.india@gmail.com</a><br>
+      💬 Join our Support Server: <a href="https://discord.gg/UM9xjbj7mN" target="_blank">OrbriX Discord</a>
+    </p>
+    <p>
+      Bot Founder: Nobita | Bot Owner: Swaroop | Developer: Swaroop
+    </p>
+  </div>
 
-  <!-- Footer -->
-  <footer class="w-full text-center py-6 text-gray-500 font-medium bg-white/50 mt-auto">
-    &copy; 2025 SentryX &middot; Developer: DevCrafters
+  <footer>
+    &copy; 2025 SentryX Team. All rights reserved.
   </footer>
-
-  <!-- Animate on Scroll JS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true,
-      duration: 700,
-      easing: 'ease-out-cubic'
-    });
-  </script>
 </body>
 </html>
